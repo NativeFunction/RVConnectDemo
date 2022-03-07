@@ -22,58 +22,76 @@
 
     <main>
         <!--Buttons-->
-        <div id="button-menu">
+        <div id="lot-menu">
 
             <div id="column-1">
-                <section class="button-div">
+                <section class="lot-div">
 
-                    <button id="button-1" class="lot-button">Lot 1</button>
-            
-                </section>
-                <section class="button-div">
-
-                    <button id="button-4" class="lot-button">Lot 4</button>
+                    <div class="lot-circle">
+                        <p id="lot-1" ></p>
+                    </div>
 
                 </section>
-                <section class="button-div">
+                <section class="lot-div">
 
-                    <button id="button-7" class="lot-button">Lot 7</button>
+                    <div class="lot-circle">
+                        <p id="lot-2" ></p>
+                    </div>
+
+                </section>
+                <section class="lot-div">
+
+                    <div class="lot-circle">
+                        <p id="lot-3" ></p>
+                    </div>
 
                 </section>
             </div>
 
             <div id="column-2">
-                <section class="button-div">
+                <section class="lot-div">
 
-                    <button id="button-2" class="lot-button">Lot 2</button>
-
-                </section>
-                <section class="button-div">
-
-                    <button id="button-5" class="lot-button">Lot 5</button>
+                    <div class="lot-circle">
+                        <p id="lot-4" ></p>
+                    </div>
 
                 </section>
-                <section class="button-div">
+                <section class="lot-div">
 
-                    <button id="button-8" class="lot-button">Lot 8</button>
+                    <div class="lot-circle">
+                        <p id="lot-5" ></p>
+                    </div>
+
+                </section>
+                <section class="lot-div">
+
+                    <div class="lot-circle">
+                        <p id="lot-6" ></p>
+                    </div>
 
                 </section>
             </div>
 
             <div id="column-3">
-                <section class="button-div">
+                <section class="lot-div">
 
-                    <button id="button-3" class="lot-button">Lot 3</button>
-
-                </section>
-                <section class="button-div">
-
-                    <button id="button-6" class="lot-button">Lot 6</button>
+                    <div class="lot-circle">
+                        <p id="lot-7" ></p>
+                    </div>
 
                 </section>
-                <section class="button-div">
+                <section class="lot-div">
 
-                    <button id="button-9" class="lot-button">Lot 9</button>
+                    <div class="lot-circle">
+                        <p id="lot-8" ></p>
+                    </div>
+
+                </section>
+                <section class="lot-div">
+
+                    <div class="lot-circle">
+                        <p id="lot-9" ></p>
+                    </div>
 
                 </section>
             </div>
@@ -101,13 +119,7 @@
     var spotsTakenLotOne = 1;
     var percentFilledLotOne = spotsTakenLotOne / totalSpotsLotOne;
 
-    function buttonOne() {
-        document.getElementById("button-1").innerHTML = percentFilledLotOne;
-    }
-
-    document.getElementById("button-1").onclick = function() {
-        buttonOne();
-    }
+    document.getElementById("lot-1").innerHTML = percentFilledLotOne;
     
     //button two
     
@@ -115,14 +127,7 @@
     var spotsTakenLotTwo = 1;
     var percentFilledLotTwo = spotsTakenLotTwo / totalSpotsLotTwo;
 
-    function buttonTwo() {
-        document.getElementById("button-2").innerHTML = percentFilledLotTwo;
-    }
-
-
-    document.getElementById("button-2").onclick = function() {
-        buttonTwo();
-    }
+    document.getElementById("lot-2").innerHTML = percentFilledLotTwo;
     
     //button three
 
@@ -130,14 +135,7 @@
     var spotsTakenLotThree = 1;
     var percentFilledLotThree = spotsTakenLotThree / totalSpotsLotThree;
 
-    function buttonThree() {
-        document.getElementById("button-3").innerHTML = percentFilledLotThree;
-    }
-
-
-    document.getElementById("button-3").onclick = function() {
-        buttonThree();
-    }
+    document.getElementById("lot-3").innerHTML = percentFilledLotThree;
     
     //button four
 
@@ -145,14 +143,7 @@
     var spotsTakenLotFour = 1;
     var percentFilledLotFour = spotsTakenLotFour / totalSpotsLotFour;
 
-    function buttonFour() {
-        document.getElementById("button-4").innerHTML = percentFilledLotFour;
-    }
-
-
-    document.getElementById("button-4").onclick = function() {
-        buttonFour();
-    }
+    document.getElementById("lot-4").innerHTML = percentFilledLotFour;  
     
     //button five
 
@@ -160,14 +151,7 @@
     var spotsTakenLotFive = 1;
     var percentFilledLotFive = spotsTakenLotFive / totalSpotsLotFive;
 
-    function buttonFive() {
-        document.getElementById("button-5").innerHTML = percentFilledLotFive;
-    }
-
-
-    document.getElementById("button-5").onclick = function() {
-        buttonFive();
-    }
+    document.getElementById("lot-5").innerHTML = percentFilledLotFive;
     
     //button six
 
@@ -175,29 +159,15 @@
     var spotsTakenLotSix = 1;
     var percentFilledLotSix = spotsTakenLotSix / totalSpotsLotSix;
 
-    function buttonSix() {
-        document.getElementById("button-6").innerHTML = percentFilledLotSix;
-    }
+    document.getElementById("lot-6").innerHTML = percentFilledLotSix;
 
-
-    document.getElementById("button-6").onclick = function() {
-        buttonSix();
-    }
-    
     //button seven
 
     var totalSpotsLotSeven = 2;
     var spotsTakenLotSeven = 1;
     var percentFilledLotSeven = spotsTakenLotSeven / totalSpotsLotSeven;
 
-    function buttonSeven() {
-        document.getElementById("button-7").innerHTML = percentFilledLotSeven;
-    }
-
-
-    document.getElementById("button-7").onclick = function() {
-        buttonSeven();
-    }
+    document.getElementById("lot-7").innerHTML = percentFilledLotSeven;
     
     //button eight
 
@@ -205,14 +175,7 @@
     var spotsTakenLotEight = 1;
     var percentFilledLotEight = spotsTakenLotEight / totalSpotsLotEight;
 
-    function buttonEight() {
-        document.getElementById("button-8").innerHTML = percentFilledLotEight;
-    }
-
-
-    document.getElementById("button-8").onclick = function() {
-        buttonEight();
-    }
+    document.getElementById("lot-8").innerHTML = percentFilledLotEight;
     
     //button nine
 
@@ -220,16 +183,8 @@
     var spotsTakenLotNine = 1;
     var percentFilledLotNine = spotsTakenLotNine / totalSpotsLotNine;
 
-    function buttonNine() {
-        document.getElementById("button-9").innerHTML = percentFilledLotNine;
-    }
-
-
-    document.getElementById("button-9").onclick = function() {
-        buttonNine();
-    };
-    
-        
+    document.getElementById("lot-9").innerHTML = percentFilledLotNine;
+       
     </script>
 
 </html>
