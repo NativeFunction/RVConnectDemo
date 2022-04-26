@@ -5,186 +5,117 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RVCC A.I.</title>
-    
-    <link rel="stylesheet" href="css/interface.css">
+
+    <style>
+        /*Font*/
+
+        h1 {
+            font: 2em sans-serif;
+            text-align: center;
+        }
+
+        .lot-name {
+            text-align: center;
+        }
+
+        /*Button design*/
+
+        #lot-menu {
+            height: 100%;
+            width: auto;
+        }
+
+        .row {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            margin-left: 2px;
+            margin-right: 2px;
+            display: flex;
+        }
+
+        .lot-circle {
+            width: 96px;
+            height: 96px;
+            border: 2px solid black;
+            border-radius: 50%;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .lot-div {
+            width: 96px;
+            height: 96px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /*horizontal lines above and below the button menu*/
+
+        #top-hr {
+            margin-bottom: 30px;
+        }
+
+        #bottom-hr {
+            margin-top: 30px;
+        }
+    </style>
 
 </head>
 
 <body>
-
     <header id="header">
-
-        <H1 id = h1>RVCC Parking Lot Genius</H1>
-    
+        <H1 id=h1>RVCC Parking Lot Genius</H1>
     </header>
 
     <hr id="top-hr">
 
     <main>
         <!--Buttons-->
-        <div id="lot-menu">
-
-            <div id="column-1">
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-1" ></p>
-                    </div>
-
-                </section>
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-2" ></p>
-                    </div>
-
-                </section>
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-3" ></p>
-                    </div>
-
-                </section>
-            </div>
-
-            <div id="column-2">
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-4" ></p>
-                    </div>
-
-                </section>
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-5" ></p>
-                    </div>
-
-                </section>
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-6" ></p>
-                    </div>
-
-                </section>
-            </div>
-
-            <div id="column-3">
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-7" ></p>
-                    </div>
-
-                </section>
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-8" ></p>
-                    </div>
-
-                </section>
-                <section class="lot-div">
-
-                    <div class="lot-circle">
-                        <p id="lot-9" ></p>
-                    </div>
-
-                </section>
-            </div>
-        </div>
+        <div id="lot-menu"></div>
 
         <!--Bottom horizontal line-->
-
         <hr id="bottom-hr">
-
-        <footer id="footer">
-
-
-            
-        </footer>
-
+        <footer id="footer"></footer>
     </main>
-
 </body>
+
+</html>
 
 <script>
 
-    //button one
+    //total, taken
+    var lotArray = [[60, 20], [75, 75], [40, 0], [10, 9], [30, 20], [78, 45], [54, 23], [32, 17], [66, 15]];
 
-    var totalSpotsLotOne = 2;
-    var spotsTakenLotOne = 1;
-    var percentFilledLotOne = spotsTakenLotOne / totalSpotsLotOne;
+    //populate taken spots with random values for demo
+    for (var i = 0; i < lotArray.length; i++) {
+        lotArray[i][1] = Math.round(100 * Math.random()) % (lotArray[i][0] + 1);
+    }
 
-    document.getElementById("lot-1").innerHTML = percentFilledLotOne;
-    
-    //button two
-    
-    var totalSpotsLotTwo = 2;
-    var spotsTakenLotTwo = 1;
-    var percentFilledLotTwo = spotsTakenLotTwo / totalSpotsLotTwo;
+    var columnCount = 3;
+    var currentRow = 0;
 
-    document.getElementById("lot-2").innerHTML = percentFilledLotTwo;
-    
-    //button three
+    for (var i = 0; i < lotArray.length; i++) {
+        var lotNum = i + 1;
+        if (i % columnCount == 0) {
+            currentRow++;
+            document.getElementById("lot-menu").innerHTML += `<div class="row" id="row-${currentRow}"><div>`;
+        }
 
-    var totalSpotsLotThree = 2;
-    var spotsTakenLotThree = 1;
-    var percentFilledLotThree = spotsTakenLotThree / totalSpotsLotThree;
+        var percentEmpty = Math.round(100 * (1 - (lotArray[i][1] / lotArray[i][0])));
 
-    document.getElementById("lot-3").innerHTML = percentFilledLotThree;
-    
-    //button four
+        document.getElementById(`row-${currentRow}`).innerHTML += `
+        <section class="lot-div">
+            <div class="lot-name">Lot ${lotNum}</div>
+            <div class="lot-circle" style="background-color: hsl(${percentEmpty}, 90%, 50%)">
+                <p>${percentEmpty}%<br>Empty</p>
+            </div>
+        </section>`;
 
-    var totalSpotsLotFour = 2;
-    var spotsTakenLotFour = 1;
-    var percentFilledLotFour = spotsTakenLotFour / totalSpotsLotFour;
 
-    document.getElementById("lot-4").innerHTML = percentFilledLotFour;  
-    
-    //button five
+    }
 
-    var totalSpotsLotFive = 2;
-    var spotsTakenLotFive = 1;
-    var percentFilledLotFive = spotsTakenLotFive / totalSpotsLotFive;
-
-    document.getElementById("lot-5").innerHTML = percentFilledLotFive;
-    
-    //button six
-
-    var totalSpotsLotSix = 2;
-    var spotsTakenLotSix = 1;
-    var percentFilledLotSix = spotsTakenLotSix / totalSpotsLotSix;
-
-    document.getElementById("lot-6").innerHTML = percentFilledLotSix;
-
-    //button seven
-
-    var totalSpotsLotSeven = 2;
-    var spotsTakenLotSeven = 1;
-    var percentFilledLotSeven = spotsTakenLotSeven / totalSpotsLotSeven;
-
-    document.getElementById("lot-7").innerHTML = percentFilledLotSeven;
-    
-    //button eight
-
-    var totalSpotsLotEight = 2;
-    var spotsTakenLotEight = 1;
-    var percentFilledLotEight = spotsTakenLotEight / totalSpotsLotEight;
-
-    document.getElementById("lot-8").innerHTML = percentFilledLotEight;
-    
-    //button nine
-
-    var totalSpotsLotNine = 2;
-    var spotsTakenLotNine = 1;
-    var percentFilledLotNine = spotsTakenLotNine / totalSpotsLotNine;
-
-    document.getElementById("lot-9").innerHTML = percentFilledLotNine;
-       
-    </script>
-
-</html>
+</script>
